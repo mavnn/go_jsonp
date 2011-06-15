@@ -30,6 +30,7 @@ func handlerWrapper(baseHandler http.HandlerFunc) http.HandlerFunc {
 			fmt.Fprintf(w, ");")
 		}
 	}
+	return f
 }
 
 func testpage(w http.ResponseWriter, req *http.Request) {
