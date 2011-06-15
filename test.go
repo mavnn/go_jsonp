@@ -25,8 +25,7 @@ func handlerWrapper(baseHandler http.HandlerFunc) http.HandlerFunc {
 		if ok {
 			w.Header()["Content-type"] = []string{"text/javascript"}
 			fmt.Fprintf(w, "%v(", callback[0])
-		}
-		else {
+		} else {
 			w.Header()["Content-type"] = []string{"application/json"}
 		}
 		baseHandler(w, req)
