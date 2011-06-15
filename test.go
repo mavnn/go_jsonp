@@ -20,6 +20,7 @@ func main() {
 
 func handlerWrapper(baseHandler http.HandlerFunc) http.HandlerFunc {
 	f := func(w http.ResponseWriter, req *http.Request) {
+		w.Header()["Content-type"] = "application/json"
 		req.ParseForm()
 		callback, ok := req.Form["callback"]
 		if ok {
