@@ -23,7 +23,7 @@ func testpage(w http.ResponseWriter, req *http.Request) {
 	if value, ok := req.Form["callback"]; ok {
 		fmt.Fprintf(w, "%v(", value)
 	}
-	fmt.Fprintf(w, "{ some : ""json"" }")
+	fmt.Fprintf(w, `{ some : "json" }`)
 	fmt.Fprintf(w, ");")
 }
 
