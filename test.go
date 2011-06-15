@@ -23,7 +23,7 @@ func handlerWrapper(baseHandler http.HandlerFunc) http.HandlerFunc {
 		req.ParseForm()
 		callback, ok := req.Form["callback"]
 		if ok {
-			fmt.Fprintf(w, "%v(", callback)
+			fmt.Fprintf(w, "%v(", callback[0])
 		}
 		baseHandler(w, req)
 		if ok {
