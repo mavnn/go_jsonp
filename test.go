@@ -20,9 +20,10 @@ func main() {
 
 func testpage(w http.ResponseWriter, req *http.Request) {
   req.ParseForm()
-  if value, ok := req.Form["callback"]; ok {
-    fmt.Fprintf(w, "Callback is: %v\n", value)
-  }
-	fmt.Fprintf(w, "hello ")
+	if value, ok := req.Form["callback"]; ok {
+		fmt.Fprintf(w, "%v(", value)
+	}
+	fmt.Fprintf(w, "{ some : ""json"" }")
+	fmt.Fprintf(w, ");")
 }
 
